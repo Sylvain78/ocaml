@@ -258,7 +258,7 @@ static int handle_process_termination(
 #endif /* WCOREDUMP */
   corestr = core ? "" : "no ";
   fprintf(stderr,
-    "Process %d got signal %d(%s), %score dumped\n",
+    "Process %ld got signal %d(%s), %score dumped\n",
     pid, signal, strsignal(signal), corestr
   );
 
@@ -273,7 +273,7 @@ static int handle_process_termination(
         fprintf(stderr, "Out of memory while processing core file.\n");
       else {
         snprintf(corefile, corefile_len,
-          "%s.%d.core", corefilename_prefix, pid);
+          "%s.%ld.core", corefilename_prefix, pid);
         if ( rename(COREFILENAME, corefile) == -1)
           fprintf(stderr, "The core file exists but could not be renamed.\n");
         else
