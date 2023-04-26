@@ -808,7 +808,7 @@ AS_CASE([$cc_basename,$host],
   [*,*-*-darwin*],
     [mkexe="$mkexe -Wl,-no_compact_unwind";
     AC_DEFINE([HAS_ARCH_CODE32], [1])],
-  [*,*-*-haiku*], [mathlib=""],
+  [*,*-*-haiku*], [mathlib="" ostype="BeOS"],
   [*,*-*-cygwin*],
     [common_cppflags="$common_cppflags -U_WIN32"
     AS_IF([$supports_shared_libraries],
